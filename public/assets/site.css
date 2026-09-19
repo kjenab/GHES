@@ -1,0 +1,29 @@
+.ghes-service-link {
+  display: inline-block;
+  color: #737373;
+  text-decoration: none;
+  border-bottom: 2px solid #ffb400;
+  padding-bottom: 0.12em;
+  transition: color 150ms ease, border-color 150ms ease;
+}
+
+.ghes-service-link:hover,
+.ghes-service-link:hover span,
+.ghes-service-link:focus-visible span {
+  color: #9a6200 !important;
+}
+
+.ghes-service-link:focus-visible {
+  color: #9a6200;
+  border-bottom-color: #9a6200;
+}
+
+.ghes-service-link:hover span,
+.ghes-service-link:focus-visible span {
+  color: #9a6200 !important;
+}
+
+.ghes-service-link:focus-visible {
+  outline: 3px solid rgba(255, 180, 0, 0.45);
+  outline-offset: 4px;
+}

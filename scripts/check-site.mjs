@@ -14,13 +14,21 @@ const pages = [
   { route: "/international-education-and-study-abroad-development", file: "international-education-and-study-abroad-development/index.html" },
   { route: "/contact-us", file: "contact-us/index.html" }
 ];
+const homepageServiceRoutes = [
+  "/program-development-consulting",
+  "/accreditation-services",
+  "/academic-leadership-faculty-recruitment-and-training",
+  "/industrial-and-workforce-development-programs",
+  "/international-education-and-study-abroad-development"
+];
 const requiredFiles = [
   "404.html",
   "favicon.png",
   "sitemap.xml",
   "robots.txt",
   "_headers",
-  "_redirects"
+  "_redirects",
+  "assets/site.css"
 ];
 const forbiddenPatterns = [
   { expression: /file:/i, label: "file: URL" },
@@ -96,6 +104,16 @@ for (const page of pages) {
   }
 }
 
+const homepagePath = path.join(siteRoot, "index.html");
+if (fs.existsSync(homepagePath)) {
+  const homepage = fs.readFileSync(homepagePath, "utf8");
+  for (const route of homepageServiceRoutes) {
+    const expectedLink = 'class="ghes-service-link" href="' + route + '"';
+    if (!homepage.includes(expectedLink)) {
+      errors.push("Homepage service card is missing link " + route);
+    }
+  }
+}
 for (const file of requiredFiles) {
   if (!exists(file)) {
     errors.push("Missing required file: " + file);
@@ -128,4 +146,4 @@ if (errors.length > 0) {
   process.exit(1);
 }
 
-console.log("Site validation passed: " + pages.length + " pages and " + requiredFiles.length + " support files checked.");
+console.log("Site validation passed: " + pages.length + " pages, " + requiredFiles.length + " support files, and " + homepageServiceRoutes.length + " homepage service links checked.");
