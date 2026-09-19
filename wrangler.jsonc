@@ -1,0 +1,18 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "globalhighereducationalservices",
+  "compatibility_date": "2026-09-19",
+  "workers_dev": true,
+  "preview_urls": true,
+  "assets": {
+    "directory": "./public",
+    "html_handling": "drop-trailing-slash",
+    "not_found_handling": "404-page"
+  },
+  "routes": [
+    {
+      "pattern": "www.globalhighereducationalservices.com",
+      "custom_domain": true
+    }
+  ]
+}

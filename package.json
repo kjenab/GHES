@@ -1,0 +1,19 @@
+{
+  "name": "global-higher-educational-services",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Static website for Global Higher Educational Services on Cloudflare Workers",
+  "scripts": {
+    "check": "node scripts/check-site.mjs",
+    "dev": "wrangler dev",
+    "deploy": "node scripts/check-site.mjs && wrangler deploy",
+    "preview": "node scripts/check-site.mjs && wrangler versions upload"
+  },
+  "devDependencies": {
+    "wrangler": "4.135.0"
+  },
+  "packageManager": "pnpm@12.4.2",
+  "engines": {
+    "node": ">=20"
+  }
+}
