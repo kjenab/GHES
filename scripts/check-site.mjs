@@ -23,7 +23,7 @@ const homepageServiceRoutes = [
 ];
 const requiredFiles = [
   "404.html",
-  "favicon.png",
+  "assets/ghes-logo.png",
   "sitemap.xml",
   "robots.txt",
   "_headers",
@@ -33,6 +33,7 @@ const requiredFiles = [
 const forbiddenPatterns = [
   { expression: /file:/i, label: "file: URL" },
   { expression: /localhost/i, label: "localhost reference" },
+  { expression: /large-high\.png/i, label: "old logo reference" },
   { expression: /\.download\b/i, label: ".download asset" },
   { expression: /Global Higher Educational Services_files/i, label: "browser-save folder" },
   { expression: /global-higher-educational-services\.azargar\.workers\.dev/i, label: "old Worker hostname" }
