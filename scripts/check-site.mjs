@@ -85,6 +85,24 @@ for (const page of pages) {
     }
   }
 
+  const footerClassCount = (html.match(/class=["']jw-credits clear ghes-footer-credit["']/g) || []).length;
+  if (footerClassCount !== 1) {
+    errors.push(page.file + " should contain one centered footer wrapper");
+  }
+  const footerBrandCount = (html.match(/<div class=["']jw-footer-text-content["']>\s*Global Higher Educational Services\s*<\/div>/g) || []).length;
+  if (footerBrandCount !== 1) {
+    errors.push(page.file + " should contain one updated footer name");
+  }
+  if (/Powered by\s*<a[^>]*>\s*Webador/i.test(html)) {
+    errors.push(page.file + " contains a visible Webador footer credit");
+  }
+  if (/&copy;\s*2026\s+Global Higher Educational Services/i.test(html)) {
+    errors.push(page.file + " contains the old dated footer text");
+  }
+  if (!html.includes('href="/assets/site.css"')) {
+    errors.push(page.file + " does not load the shared site stylesheet");
+  }
+
   const canonicalMatch = html.match(/<link[^>]+rel=["']canonical["'][^>]+href=["']([^"']+)["']/i);
   const ogUrlMatch = html.match(/<meta[^>]+property=["']og:url["'][^>]+content=["']([^"']+)["']/i);
   const expected = expectedUrl(page.route);

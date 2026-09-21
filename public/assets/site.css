@@ -27,3 +27,9 @@
   outline: 3px solid rgba(255, 180, 0, 0.45);
   outline-offset: 4px;
 }
+
+.ghes-footer-credit .jw-credits-owner {
+  float: none;
+  width: 100%;
+  text-align: center;
+}
