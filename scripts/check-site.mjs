@@ -35,6 +35,7 @@ const forbiddenPatterns = [
   { expression: /localhost/i, label: "localhost reference" },
   { expression: /large-high\.png/i, label: "old logo reference" },
   { expression: /\.download\b/i, label: ".download asset" },
+  { expression: /ahmadzargari@global-higher-educational-services\.com/i, label: "removed email address" },
   { expression: /Global Higher Educational Services_files/i, label: "browser-save folder" },
   { expression: /global-higher-educational-services\.azargar\.workers\.dev/i, label: "old Worker hostname" }
 ];
