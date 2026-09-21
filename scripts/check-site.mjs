@@ -36,6 +36,7 @@ const forbiddenPatterns = [
   { expression: /large-high\.png/i, label: "old logo reference" },
   { expression: /\.download\b/i, label: ".download asset" },
   { expression: /ahmadzargari@global-higher-educational-services\.com/i, label: "removed email address" },
+  { expression: /azargar@yahoo\.com/i, label: "old public Yahoo contact address" },
   { expression: /Global Higher Educational Services_files/i, label: "browser-save folder" },
   { expression: /global-higher-educational-services\.azargar\.workers\.dev/i, label: "old Worker hostname" }
 ];
@@ -84,6 +85,10 @@ for (const page of pages) {
     if (item.expression.test(html)) {
       errors.push(page.file + " contains a " + item.label);
     }
+  }
+
+  if (!html.includes("a.zargari@globalhighereducationalservices.com")) {
+    errors.push(page.file + " should show the company contact address");
   }
 
   const footerClassCount = (html.match(/class=["']jw-credits clear ghes-footer-credit["']/g) || []).length;
